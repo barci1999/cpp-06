@@ -6,7 +6,7 @@
 /*   By: pablalva <pablalva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 18:47:47 by pablalva          #+#    #+#             */
-/*   Updated: 2025/10/21 12:59:24 by pablalva         ###   ########.fr       */
+/*   Updated: 2025/10/21 15:07:32 by pablalva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ public:
 	std::string* get_args() const;
 	char ** get_old_argv() const;
 	bool get_Is_valid() const;
+	std::string trim(std::string input);
 	virtual void check_valid() = 0;
 };
 

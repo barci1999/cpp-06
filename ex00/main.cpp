@@ -6,19 +6,24 @@
 /*   By: pablalva <pablalva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 18:25:13 by pablalva          #+#    #+#             */
-/*   Updated: 2025/10/21 12:58:56 by pablalva         ###   ########.fr       */
+/*   Updated: 2025/10/21 20:19:43 by pablalva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ScalarConverter.hpp"
+#include"ParserScalar.hpp"
 #include"AParser.hpp"
 int main(int argc,char **argv)
 {
-	if (argc < 2)
+	try
 	{
-		return(std::cout<<"invalid number argumens."<<std::endl,1);
+		ParserScalar Progam(argc,argv);
+		std::string* temp = Progam.get_args();
+		ScalarConverter::convert(temp[1]);
 	}
-	std::string conver = argv[1];
-	ScalarConverter::convert(conver);
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	return(0);
 }

@@ -20,14 +20,21 @@ AParser::AParser()
 	this->_is_valid = false;
 	this->_args = NULL;
 }
-AParser::AParser(int argc,char **argv) : _argc(argc) , _old_argv(argv), _is_valid(false)
+AParser::AParser(int argc, char **argv) 
+    : _argc(argc), _old_argv(argv), _is_valid(false)
 {
-	//std::cout << "Parametered constructor called." <<  std::endl;
-	this->_args = new std::string[_argc];
-		for (int i = 0; i < this->_argc; i++)
-		{
-			_args[i] = std::string(_old_argv[i]);
-		}
+    try
+    {
+        this->_args = new std::string[_argc];
+        for (int i = 0; i < _argc; i++)
+        {
+            _args[i] = AParser::trim(std::string(_old_argv[i]));
+        }
+    }
+    catch (const std::bad_alloc& e)
+    {
+        std::cerr << "Memory allocation failed in AParser constructor: " << e.what() << std::endl;
+    }
 }
 AParser::AParser(const AParser& other)
 {
@@ -60,5 +67,15 @@ char** AParser::get_old_argv() const{return this->_old_argv;}
 std::string* AParser::get_args() const {return this->_args;}
 bool AParser::get_Is_valid() const {return this->_is_valid;}
 
+std::string AParser::trim(std::string input)
+{
+   size_t start = 0;
+   while (start < input.length() && std::isspace((unsigned char)input[start]))
+        start++;
+   size_t end = input.length();
+   while (end > start && std::isspace((unsigned char)input[end - 1]))
+        end--;
+   return(input.substr(start,end - start));  
+}
 
 
