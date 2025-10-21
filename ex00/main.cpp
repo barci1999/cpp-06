@@ -6,11 +6,12 @@
 /*   By: pablalva <pablalva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 18:25:13 by pablalva          #+#    #+#             */
-/*   Updated: 2025/10/20 18:28:28 by pablalva         ###   ########.fr       */
+/*   Updated: 2025/10/21 12:58:56 by pablalva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ScalarConverter.hpp"
+#include"AParser.hpp"
 int main(int argc,char **argv)
 {
 	if (argc < 2)
@@ -19,4 +20,5 @@ int main(int argc,char **argv)
 	}
 	std::string conver = argv[1];
 	ScalarConverter::convert(conver);
+	return(0);
 }

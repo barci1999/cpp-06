@@ -1,21 +1,21 @@
 NAME = scalar_converter
 CC = c++
-CFLAGS = -Wall -Werror -Wextra -std=c++98
+CFLAGS = -Wall -Werror -Wextra -std=c++98 -g3
 
-SOURCES = main.cpp 
+SOURCES = main.cpp AParser.cpp 
 OBJECTS = $(SOURCES:.cpp=.o)
 
 %.o: %.cpp
-        $(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS)
-        $(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
 
 clean:
-        rm -f $(OBJECTS)
+	rm -f $(OBJECTS)
 
 fclean: clean
-        rm -f $(NAME)
+	rm -f $(NAME)
 
 all: $(NAME)
 

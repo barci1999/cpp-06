@@ -6,7 +6,7 @@
 /*   By: pablalva <pablalva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 18:47:47 by pablalva          #+#    #+#             */
-/*   Updated: 2025/10/20 20:02:25 by pablalva         ###   ########.fr       */
+/*   Updated: 2025/10/21 12:59:24 by pablalva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,20 @@ public:
 	AParser& operator=(const AParser& other);
 	virtual ~AParser();
 	
-	class InvalidNbrArguments : public std::exception
+	class ExceptionError : public std::exception
 		{
+			const char* _msg;
 			public:
-				const char* what() const throw(){
-					return("Invalid number arguments.");
-				}
-		};
-	class InvalidArguments : public std::exception
-		{
-			public:
-				const char* what() const throw(){
-					return("Invalid arguments.");
+				explicit ExceptionError(const char* msg) : _msg(msg) {}
+				virtual const char* what() const throw(){
+					return(_msg);
 				}
 		};
 	int get_Argc() const;
-	std::string* get_Argv() const;
+	std::string* get_args() const;
+	char ** get_old_argv() const;
 	bool get_Is_valid() const;
-	virtual void check_valid() = 0 ;
+	virtual void check_valid() = 0;
 };
 
 #endif

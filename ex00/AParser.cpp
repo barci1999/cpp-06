@@ -24,7 +24,7 @@ AParser::AParser(int argc,char **argv) : _argc(argc) , _old_argv(argv), _is_vali
 {
 	//std::cout << "Parametered constructor called." <<  std::endl;
 	this->_args = new std::string[_argc];
-		for (size_t i = 0; i < this->_argc; i++)
+		for (int i = 0; i < this->_argc; i++)
 		{
 			_args[i] = std::string(_old_argv[i]);
 		}
@@ -55,3 +55,10 @@ AParser::~AParser()
 	//std::cout << "Destructor called." << std::endl;
 	delete[]_args;
 }
+int AParser::get_Argc() const {return this->_argc;}
+char** AParser::get_old_argv() const{return this->_old_argv;}
+std::string* AParser::get_args() const {return this->_args;}
+bool AParser::get_Is_valid() const {return this->_is_valid;}
+
+
+

@@ -6,7 +6,7 @@
 /*   By: pablalva <pablalva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 19:23:32 by pablalva          #+#    #+#             */
-/*   Updated: 2025/10/20 19:48:42 by pablalva         ###   ########.fr       */
+/*   Updated: 2025/10/21 12:59:59 by pablalva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,5 @@ ParserScalar::~ParserScalar()
 void ParserScalar::check_valid()
 {
 	if(this->_argc > 2)
-		throw InvalidNbrArguments();
+		throw ExceptionError("Invalid number of arguments.");
 }
