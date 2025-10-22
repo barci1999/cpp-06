@@ -2,7 +2,7 @@ NAME = scalar_converter
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98 -g3
 
-SOURCES = main.cpp AParser.cpp 
+SOURCES = main.cpp AParser.cpp ParserScalar.cpp ScalarConverter.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 %.o: %.cpp
