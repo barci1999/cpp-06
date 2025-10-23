@@ -6,7 +6,7 @@
 /*   By: pablalva <pablalva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 12:54:20 by pablalva          #+#    #+#             */
-/*   Updated: 2025/10/23 14:24:56 by pablalva         ###   ########.fr       */
+/*   Updated: 2025/10/23 14:25:38 by pablalva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ int main()
 
 		std::cout << "\nDeserialized Data (fake): " << fake_ptr << std::endl;
 		//std::cout << fake_ptr->id << std::endl; 
+	}
     return 0;
 }
